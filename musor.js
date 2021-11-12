@@ -78,20 +78,25 @@ function transposeArray(array, arrayLength){
 }
 
 const readData = () => {
-  const arr = []
-  for (let i = 0; i < processes.length; i++) {
-    if (await[i].value === '' || duration[i].value === '')
-      throw('');
-    else {
-      arr.push({
-        id: processes[i].id,
-        await: +await[i].value,
-        duration: +duration[i].value,
-        priority: +priority[i].value
-      })
+  try {
+    const arr = []
+    for (let i = 0; i < processes.length; i++) {
+      if (await[i].value === '' || duration[i].value === '')
+        throw('Cringe, vvedi normalno');
+      else {
+        arr.push({
+          id: processes[i].id,
+          await: +await[i].value,
+          duration: +duration[i].value,
+          priority: +priority[i].value
+        })
+      }
     }
+    return arr
   }
-  return arr
+  catch (e) {
+    alert(e)
+  }
 }
 
 const sortById = (arr) => {
