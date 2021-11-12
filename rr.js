@@ -11,7 +11,11 @@ const rr = (arr) => {
   length += +arr[0].await;
 
   //  fill array with iterations
-  let isBusy = {place: null, takt: +taktIn.value};
+  try {
+  if (taktIn.value === '') {
+      throw('Cringe, vvedi N normalno');
+    }
+    let isBusy = {place: null, takt: +taktIn.value};
   let stoppu = [];
   for (let i = 0; i < length; i++) {
     const iteration = [];
@@ -59,7 +63,11 @@ const rr = (arr) => {
   }
   
   //  get ready for output
-    result = transposeArray(result, result[0].length)
-    result = sortById(result);
-    return result;
+  result = transposeArray(result, result[0].length)
+  result = sortById(result);
+  return result;
+  }
+  catch (e) {
+    alert(e)
+  }
 }

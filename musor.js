@@ -81,7 +81,7 @@ const readData = () => {
   try {
     const arr = []
     for (let i = 0; i < processes.length; i++) {
-      if (await[i].value === '' || duration[i].value === '')
+      if (await[i].value === '' || duration[i].value === '' || priority[i].value === '')
         throw('Cringe, vvedi normalno');
       else {
         arr.push({
