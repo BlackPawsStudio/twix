@@ -38,6 +38,38 @@ let processes = [
 //     priority: 1
 //   },
 // ]
+// let processes = [
+//   {
+//     id: 0,
+//     await: 1,
+//     duration: 7,
+//     priority: 4
+//   },
+//   {
+//     id: 1,
+//     await: 2,
+//     duration: 5,
+//     priority: 2
+//   },
+//   {
+//     id: 2,
+//     await: 3,
+//     duration: 3,
+//     priority: 1
+//   },
+//   {
+//     id: 3,
+//     await: 4,
+//     duration: 2,
+//     priority: 3
+//   },
+//   {
+//     id: 4,
+//     await: 5,
+//     duration: 5,
+//     priority: 5
+//   },
+// ]
 
 addProcess.addEventListener('click', () => {
   processes.push(
@@ -60,11 +92,22 @@ algorBtns[1].addEventListener('click', () => {
 })
 
 algorBtns[2].addEventListener('click', () => {
-  output(sjf(readData()));
+  if (ex) {
+    console.log(ex);
+    output(sjf(readData()));
+  }
+  else {
+    output(esjf(readData()))
+  }
 })
 
 algorBtns[3].addEventListener('click', () => {
-  output(prior(readData()));
+  if (ex) {
+    output(prior(readData()));
+  }
+  else {
+    output(eprior(readData()));
+  }
 })
 
 render();

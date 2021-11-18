@@ -33,7 +33,7 @@
 #btns{
   display: flex;
   flex-direction: column;
-  height: 150px;
+  height: 170px;
   width: 150px;
   justify-content: space-between;
   position: fixed;

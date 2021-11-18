@@ -1,12 +1,8 @@
-const fsfc = (arr) => {
+const esjf = (arr) => {
   let result = [];
   let length = 0;
   
-  //  sort array by await
-  arr = sortByAwait(arr);
-
-
-  console.log(arr)
+  arr = sortByDuration(arr);
   //  set output length
   arr.forEach(element => {
     length += element.duration;
@@ -14,24 +10,27 @@ const fsfc = (arr) => {
   length += +arr[0].await;
 
   //  fill array with iterations
+  let isBusy = null;
   for (let i = 0; i < length; i++) {
-    let isBusy = false;
     const iteration = [];
     for (let j = 0; j < arr.length; j++) {
       if (arr[j].await == 0) {
-        if (!isBusy) {
-          if (arr[j].duration > 0) {
-            isBusy = true;
+        if (arr[j].duration > 0) {
+          if (isBusy == null || isBusy == arr[j].id) {
+            isBusy = arr[j].id;
             iteration[j] = {id: arr[j].id, value: 'И'};
             arr[j].duration--;
+            if (arr[j].duration == 0 && j == arr.length - 1) {
+              isBusy = null;
+            }
           }
           else {
-            iteration[j] = {id: arr[j].id, value: '0'};
-            isBusy = false;
+            iteration[j] = {id: arr[j].id, value: 'Г'};
           }
         }
         else {
-          iteration[j] = {id: arr[j].id, value: 'Г'};
+          iteration[j] = {id: arr[j].id, value: '0'};
+          isBusy = null;
         }
       }
       else {

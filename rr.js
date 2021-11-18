@@ -25,7 +25,7 @@ const rr = (arr) => {
           if (isBusy.place == null || isBusy.place == j) {
             if (isBusy.takt ==  0 && j != arr.length - 1) {
               isBusy = {place: null, takt: +taktIn.value};
-              iteration[j] = {id: arr[j].id, value: 'J'};  
+              iteration[j] = {id: arr[j].id, value: 'Г'};  
             }
             else {
               isBusy.place = j;

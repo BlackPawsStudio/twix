@@ -8,6 +8,11 @@ const await = document.getElementsByClassName('await');
 const duration = document.getElementsByClassName('duration');
 const priority = document.getElementsByClassName('priority');
 const taktIn = document.getElementById('takt');
+const inputEx = document.getElementById('ex');
+let ex = true;
+inputEx.addEventListener('click', () => {
+  ex = !ex;
+})
 
 const idGenerator = (a, arr) => arr.map(e => +e.id).includes(a) ? idGenerator(++a, arr) : a
 
